@@ -91,9 +91,17 @@ class FileSorter {
   private static func keyFromLine(_ line: String) -> String? {
     let components = line.split(separator: "=")
     guard components.count == 2 else { return nil }
-    let key = components[0].trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+    let key = components[0].trimmingCharacters(in: CharacterSet.doubleQuotesAndWhitespace)
     return key
   }
+}
+
+extension CharacterSet {
+  static let doubleQuotesAndWhitespace: CharacterSet = {
+    var set = CharacterSet.whitespaces
+    set.insert("\"")
+    return set
+  }()
 }
 
 do {
