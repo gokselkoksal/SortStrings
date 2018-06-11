@@ -30,7 +30,7 @@ OR
 * Use Terminal:
 
 ```bash
-./SortStrings.sh <path-to-the-strings-file>
+./SortStrings <path-to-the-strings-file>
 ```
 
 ## Reference
