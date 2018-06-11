@@ -18,9 +18,9 @@ class Console {
   static func write(_ message: String, to: OutputType = .standard) {
     switch to {
     case .standard:
-      print("\u{001B}[;m\(message)")
+      print("\(message)")
     case .error:
-      fputs("\u{001B}[0;31m\(message)\n", stderr)
+      fputs("\(message)\n", stderr)
     }
   }
 }
@@ -83,7 +83,7 @@ class FileSorter {
 do {
   let path = try PathReader.readPath()
   try FileSorter.sortFile(at: path)
-  Console.write("Strings file is sorted successfully.")
+  Console.write("File is sorted successfully. (\(path))")
 } catch {
   Console.write(error.localizedDescription, to: .error)
 }
