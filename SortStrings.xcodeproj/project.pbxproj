@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8F6864D620CE83C5006F4E92 /* LocalizableMerge */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LocalizableMerge; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F6864D620CE83C5006F4E92 /* SortStrings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SortStrings; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6864D920CE83C5006F4E92 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,7 +41,7 @@
 		8F6864CD20CE83C5006F4E92 = {
 			isa = PBXGroup;
 			children = (
-				8F6864D820CE83C5006F4E92 /* LocalizableMerge */,
+				8F6864D820CE83C5006F4E92 /* SortStrings */,
 				8F6864D720CE83C5006F4E92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,25 +49,25 @@
 		8F6864D720CE83C5006F4E92 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8F6864D620CE83C5006F4E92 /* LocalizableMerge */,
+				8F6864D620CE83C5006F4E92 /* SortStrings */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8F6864D820CE83C5006F4E92 /* LocalizableMerge */ = {
+		8F6864D820CE83C5006F4E92 /* SortStrings */ = {
 			isa = PBXGroup;
 			children = (
 				8F6864D920CE83C5006F4E92 /* main.swift */,
 			);
-			path = LocalizableMerge;
+			path = SortStrings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8F6864D520CE83C5006F4E92 /* LocalizableMerge */ = {
+		8F6864D520CE83C5006F4E92 /* SortStrings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8F6864DD20CE83C5006F4E92 /* Build configuration list for PBXNativeTarget "LocalizableMerge" */;
+			buildConfigurationList = 8F6864DD20CE83C5006F4E92 /* Build configuration list for PBXNativeTarget "SortStrings" */;
 			buildPhases = (
 				8F6864D220CE83C5006F4E92 /* Sources */,
 				8F6864D320CE83C5006F4E92 /* Frameworks */,
@@ -77,9 +77,9 @@
 			);
 			dependencies = (
 			);
-			name = LocalizableMerge;
+			name = SortStrings;
 			productName = LocalizableMerge;
-			productReference = 8F6864D620CE83C5006F4E92 /* LocalizableMerge */;
+			productReference = 8F6864D620CE83C5006F4E92 /* SortStrings */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +98,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8F6864D120CE83C5006F4E92 /* Build configuration list for PBXProject "SortStringsFile" */;
+			buildConfigurationList = 8F6864D120CE83C5006F4E92 /* Build configuration list for PBXProject "SortStrings" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,7 +110,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8F6864D520CE83C5006F4E92 /* LocalizableMerge */,
+				8F6864D520CE83C5006F4E92 /* SortStrings */,
 			);
 		};
 /* End PBXProject section */
@@ -254,7 +254,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8F6864D120CE83C5006F4E92 /* Build configuration list for PBXProject "SortStringsFile" */ = {
+		8F6864D120CE83C5006F4E92 /* Build configuration list for PBXProject "SortStrings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F6864DB20CE83C5006F4E92 /* Debug */,
@@ -263,7 +263,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8F6864DD20CE83C5006F4E92 /* Build configuration list for PBXNativeTarget "LocalizableMerge" */ = {
+		8F6864DD20CE83C5006F4E92 /* Build configuration list for PBXNativeTarget "SortStrings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8F6864DE20CE83C5006F4E92 /* Debug */,
