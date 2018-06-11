@@ -59,7 +59,13 @@ class PathReader {
 
 class FileSorter {
   
+  enum Error: Swift.Error {
+    case invalidContents
+  }
+  
   static func sortFile(at path: String) throws {
+    // BRUTE FORCE APPROACH. PROCEED WITH CAUTION.
+    // ...works for this scale!
     let data = try String(contentsOfFile: path, encoding: .utf8)
     var strings = data.components(separatedBy: .newlines)
     
@@ -71,12 +77,22 @@ class FileSorter {
       return string
     })
     
-    strings.sort(by: { (a, b) -> Bool in
-      return a.prefix(2) < b.prefix(2)
+    try strings.sort(by: { (line1, line2) -> Bool in
+      guard let key1 = keyFromLine(line1), let key2 = keyFromLine(line2) else {
+        throw Error.invalidContents
+      }
+      return key1 < key2
     })
     
     let string = strings.joined(separator: "\n")
     try string.write(toFile: path, atomically: true, encoding: .utf8)
+  }
+  
+  private static func keyFromLine(_ line: String) -> String? {
+    let components = line.split(separator: "=")
+    guard components.count == 2 else { return nil }
+    let key = components[0].trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+    return key
   }
 }
 
