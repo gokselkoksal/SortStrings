@@ -60,7 +60,15 @@ class PathReader {
 class FileSorter {
   
   enum Error: Swift.Error {
-    case invalidContents
+    
+    case invalidContents(line: String)
+    
+    var localizedDescription: String {
+      switch self {
+      case .invalidContents(line: let line):
+        return "Invalid contents. (Line: \(line))"
+      }
+    }
   }
   
   static func sortFile(at path: String) throws {
@@ -69,7 +77,7 @@ class FileSorter {
     let data = try String(contentsOfFile: path, encoding: .utf8)
     var strings = data.components(separatedBy: .newlines)
     
-    strings = strings.flatMap({ (string) -> String? in
+    strings = strings.compactMap({ (string) -> String? in
       let string = string.trimmingCharacters(in: .whitespacesAndNewlines)
       guard string.starts(with: "\"") && string.count > 6 /* ""=""; */ else {
         return nil
@@ -78,8 +86,11 @@ class FileSorter {
     })
     
     try strings.sort(by: { (line1, line2) -> Bool in
-      guard let key1 = keyFromLine(line1), let key2 = keyFromLine(line2) else {
-        throw Error.invalidContents
+      guard let key1 = keyFromLine(line1) else {
+        throw Error.invalidContents(line: line1)
+      }
+      guard let key2 = keyFromLine(line2) else {
+        throw Error.invalidContents(line: line2)
       }
       return key1 < key2
     })
@@ -89,9 +100,10 @@ class FileSorter {
   }
   
   private static func keyFromLine(_ line: String) -> String? {
-    let components = line.split(separator: "=")
-    guard components.count == 2 else { return nil }
-    let key = components[0].trimmingCharacters(in: CharacterSet.doubleQuotesAndWhitespace)
+    guard let delimeterIndex = line.firstIndex(of: "=") else {
+      return nil
+    }
+    let key = line[..<delimeterIndex].trimmingCharacters(in: CharacterSet.doubleQuotesAndWhitespace)
     return key
   }
 }
@@ -109,5 +121,5 @@ do {
   try FileSorter.sortFile(at: path)
   Console.write("File is sorted successfully. (\(path))")
 } catch {
-  Console.write(error.localizedDescription, to: .error)
+  Console.write("\(error)", to: .error)
 }
